@@ -1,19 +1,19 @@
-function stockList(listOfArt, listOfCat){
+function stockList(inventory, searchKeys){
   let list = {};
   let final = "";
   
-  for (let i = 0; i < listOfCat.length; i++) {
-    for (let n = 0; n < listOfArt.length; n++) {
+  for (let i = 0; i < searchKeys.length; i++) {
+    for (let n = 0; n < inventory.length; n++) {
       
-      if (listOfCat[i] === listOfArt[n][0]) {
-        let num = listOfArt[n].match(/\d+/g);
+      if (searchKeys[i] === inventory[n][0]) {
+        let num = inventory[n].match(/\d+/g);
         
         num = parseInt(num);
         
-        list[listOfCat[i]] ? list[listOfCat[i]] += num
-        : list[listOfCat[i]] = num;
+        list[searchKeys[i]] ? list[searchKeys[i]] += num
+        : list[searchKeys[i]] = num;
         
-      } else if (!list[listOfCat[i]]) {list[listOfCat[i]] = 0;}
+      } else if (!list[searchKeys[i]]) {list[searchKeys[i]] = 0;}
       
     }
   }
